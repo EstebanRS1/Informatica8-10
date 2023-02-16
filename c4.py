@@ -68,19 +68,26 @@ class Sistema():
 
 mi_sistema = Sistema()
 
-while True:
-    menu = int(input("""1.Nuevo Paciente
-    2. Número de Pacientes
-    3. Datos Paciente
-    4. Salir
-    > """))
-    if menu == 1:
-        mi_sistema.ingresarPaciente()
-    elif menu == 2:
-        print("Número total de pacientes: " + str(mi_sistema.verNumeroPacientes()))
-    elif menu == 3:
-        mi_sistema.verDatosPacientes()
-    elif menu == 4:
-        break
-    else: 
-        print("Opción inválida")
+
+def main():
+    sis= Sistema()
+    while True:
+        menu = int(input("""
+        1.Nuevo Paciente
+        2. Número de Pacientes
+        3. Datos Paciente
+        4. Salir
+        > """))
+        if menu == 1:
+            mi_sistema.ingresarPaciente()
+        elif menu == 2:
+            print("Número total de pacientes: " + str(mi_sistema.verNumeroPacientes()))
+        elif menu == 3:
+            mi_sistema.verDatosPacientes()
+        elif menu == 4:
+            break
+        else: 
+            print("Opción inválida")
+
+if __name__ == "__main__":
+    main()
