@@ -31,6 +31,15 @@ class Sistema():
         # con un método de asignar
         self.__numero_pacientes = len(self.__lista_pacientes)
 
+    def verificarPaciente (self,cedula):
+        encontrado =False
+
+        for p in self.__lista_pacientes:
+            if cedula == p.verCedula():
+                encontrado= True
+                break
+        return encontrado
+
     def ingresarPaciente(self):
         #Solicitar datos
         nombre = input("Ingrese el Nombre: ")
@@ -38,19 +47,31 @@ class Sistema():
         genero =input("Ingrese el Género: ")
         servicio = input("Ingrese el Servicio: ")
 
+        #Verificar
+        pac = Paciente()
+        #Verifico primero si existe
+        if self.verificarPaciente(pac.verCedula()):
+            return False
+        
+        #Si no existe lo agruego y retorno verdadero
+        #self.__lista_pacientes.append(pac)
+        
+    
+
         #Crear objeto Paciente y le asigno los datos
-        p = Paciente()
-        p.asignarNombre(nombre)
-        p.asignarCedula(cedula)
-        p.asignarGenero(genero)
-        p.asignarServicio(servicio)
+        
+        pac.asignarNombre(nombre)
+        pac.asignarCedula(cedula)
+        pac.asignarGenero(genero)
+        pac.asignarServicio(servicio)
 
         #Guardar paciente en la lista
         # self.__lista_pacientes[p.verCedula()]= p
-        self.__lista_pacientes.append(p)
+        self.__lista_pacientes.append(pac)
 
         #Actualización la cantidad de pacientes en el sistema
         self.__numero_pacientes = len(self.__lista_pacientes)
+        return True
 
     def verNumeroPacientes(self):
         return self.__numero_pacientes
@@ -79,6 +100,7 @@ def main():
         4. Salir
         > """))
         if menu == 1:
+            #pac=Paciente()
             mi_sistema.ingresarPaciente()
         elif menu == 2:
             print("Número total de pacientes: " + str(mi_sistema.verNumeroPacientes()))
