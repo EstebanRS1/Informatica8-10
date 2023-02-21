@@ -35,3 +35,6 @@ class Mascota:
     def asignarFecha(self,F):
         self.__fecha_ingreso=F
 
+    def asignarPeso(self,P):
+        self.__peso=P
+
