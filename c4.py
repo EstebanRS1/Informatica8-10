@@ -111,5 +111,5 @@ def main():
         else: 
             print("Opción inválida")
 
-if __name__ == "__main__":
+if __name__ == "__main__":  #Convencion utilizada para llamar el menu, es similar al self en las clases
     main()
