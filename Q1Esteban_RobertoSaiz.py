@@ -3,16 +3,6 @@
 
 # Le sistema debe permitir solicitar dicha información y almacenarla, igualmente debe permitir la búsqueda y visualización de esta.
 import  datetime
-
-# class PMeteorologico():
-#     def __init__(self):
-        
-
-    
-    
-   
-
-
 class Registro():
     def __init__(self):
         self.__nombre=""
@@ -75,9 +65,8 @@ class Sistema():
 
     def verificarExiste(self,c):
         return c in self.__dictPMeteorologico
-        #     return True
-        # else:
-        #     return False
+        
+
     def agregarPM(self,p):
         self.__dictPMeteorologico[p.mostrarRegistro()]=p
 
